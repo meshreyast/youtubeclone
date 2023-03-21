@@ -2,12 +2,13 @@ import { useState, useEffect } from "react";
 import { Typography, Box } from "@mui/material";
 import { useParams } from "react-router-dom";
 
-import { Videos } from "./";
 import { fetchFromAPI } from "../utils/fecthFromAPI";
+import { Videos } from "./";
 
 const SearchFeed = () => {
     const [videos, setVideos] = useState(null);
     const { searchTerm } = useParams();
+    console.log(searchTerm)
 
     useEffect(() => {
         fetchFromAPI(`search?part=snippet&q=${searchTerm}`)
